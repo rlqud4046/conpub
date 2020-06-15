@@ -61,8 +61,8 @@ public class Member {
     @OneToMany(mappedBy = "reviewMember")
     private List<Review> reviews = new ArrayList<Review>();
 
-    @OneToMany(mappedBy = "orderMember")
-    private List<Order> orders = new ArrayList<Order>();
+    @OneToMany(mappedBy = "selectOptionMember")
+    private List<SelectedOption> selectedOptions = new ArrayList<SelectedOption>();
 
 
 

@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,17 +27,11 @@ public class Order {
     )
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_no")
-    private Member orderMember;
-
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "selected_no")
-    private SelectedOption selectedOption;
-
     private LocalDateTime orderDate;
 
+    @OneToMany(mappedBy = "selectOptionOrder")
+    private List<SelectedOption> selectedOptionList = new ArrayList<SelectedOption>();
 }
