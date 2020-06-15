@@ -24,7 +24,10 @@ public class SelectedOption {
             generator = "SELECTED_OPTION_SEQ_GEN"
     )
     private Long id;
-    // private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_no")
+    private Member selectOptionMember;
 
     @Enumerated(EnumType.STRING)
     private SelectedStatus selectedStatus;
@@ -61,5 +64,11 @@ public class SelectedOption {
 
     @Column(nullable = false, precision = 12, scale = 1)
     private BigDecimal total_price;
+
+    private String ALIAS;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "selectedOptionList")
+    private Order selectOptionOrder;
 
 }
