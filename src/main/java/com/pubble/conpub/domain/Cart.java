@@ -12,14 +12,19 @@ import javax.persistence.*;
 public class Cart {
 
     @Id
+    @Column(name = "cart_no")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "CART_SEQ_GEN"
     )
-    private Long cartNo;
+    private Long id;
 
-    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_no")
+    private Member cartMember;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "selected_no")
     private SelectedOption SelectedOption;
 
     private String cartMemo;

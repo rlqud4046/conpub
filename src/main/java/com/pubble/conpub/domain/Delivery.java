@@ -12,13 +12,16 @@ import javax.persistence.*;
 public class Delivery {
 
     @Id
+    @Column(name = "delivery_no")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "DELIVERY_SEQ_GEN"
     )
-    private Long deliveryNo;
+    private Long id;
 
-    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_no")
+    private Member deliveryMember;
 
     private String deliveryName;
 

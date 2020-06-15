@@ -13,17 +13,21 @@ import java.time.LocalDateTime;
 public class Order {
 
     @Id
+    @Column(name = "order_no")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "ORDER_SEQ_GEN"
     )
-    private Long orderNo;
+    private Long id;
 
-    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_no")
+    private Member orderMember;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
+    @OneToOne
     private SelectedOption selectedOption;
 
     private LocalDateTime orderDate;

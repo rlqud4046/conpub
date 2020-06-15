@@ -13,11 +13,12 @@ import java.time.LocalDateTime;
 public class Review {
 
     @Id
+    @Column(name = "review_no")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "REVIEW_SEQ_GEN"
     )
-    private Long reviewNo;
+    private Long id;
 
     private Member member;
 
@@ -32,6 +33,6 @@ public class Review {
     private String reviewCont;
 
     @Enumerated(EnumType.STRING)
-    private MileageOk mileageOk;
+    private YesNo mileageOk;
 
 }

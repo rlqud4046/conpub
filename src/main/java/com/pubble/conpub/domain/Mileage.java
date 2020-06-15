@@ -14,19 +14,24 @@ import java.time.LocalDateTime;
 public class Mileage {
 
     @Id
+    @Column(name = "mileage_no")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "MILEAGE_SEQ_GEN"
     )
-    private Long mileageNo;
+    private Long id;
 
-    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_no")
+    private Member mileageMember;
 
     private BigDecimal mileage;
 
     private String mileagePath;
 
     private LocalDateTime mileageDate;
+
+
 
 }
 

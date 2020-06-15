@@ -1,6 +1,8 @@
 package com.pubble.conpub.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @SequenceGenerator(
@@ -12,11 +14,12 @@ import javax.persistence.*;
 public class Member {
 
     @Id
+    @Column(name = "member_no")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "MEMBER_SEQ_GEN"
     )
-    private Long memberNo;
+    private Long id;
 
     private String memberId;
 
@@ -29,13 +32,33 @@ public class Member {
     private String memberEmail;
 
     @Enumerated(EnumType.STRING)
-    private EmailAgree emailAgree;
+    private YesNo emailAgree;
 
     private String memberPhone;
 
     @Enumerated(EnumType.STRING)
-    private SmsAgree smsAgree;
+    private YesNo smsAgree;
 
     private String memberMemo;
+
+    @OneToMany(mappedBy = "boardMember")
+    private List<Board> boards = new ArrayList<Board>();
+
+    @OneToMany(mappedBy = "cartMember")
+    private List<Cart> carts = new ArrayList<Cart>();
+
+    @OneToMany(mappedBy = "deliveryMember")
+    private List<Delivery> deliveries = new ArrayList<Delivery>();
+
+    @OneToMany(mappedBy = "mileageMember")
+    private List<Mileage> mileages = new ArrayList<Mileage>();
+
+    @OneToMany(mappedBy = "reviewMember")
+    private List<Review> reviews = new ArrayList<Review>();
+
+    @OneToMany(mappedBy = "orderMember")
+    private List<Order> orders = new ArrayList<Order>();
+
+
 
 }

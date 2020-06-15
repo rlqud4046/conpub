@@ -12,11 +12,12 @@ import javax.persistence.*;
 public class Faq {
 
     @Id
+    @Column(name = "faq_no")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "FAQ_SEQ_GEN"
     )
-    private Long faqNo;
+    private Long id;
 
     private String faqQuestion;
 

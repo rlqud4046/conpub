@@ -1,20 +1,31 @@
 package com.pubble.conpub.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Setter
+@Getter
 @SequenceGenerator(
         name = "BOARD_SEQ_GEN",
         sequenceName = "BOARD_SEQ",
-        initialValue = 1,allocationSize = 1
+        initialValue = 1, allocationSize = 1
 )
 public class Board {
-    @Id@GeneratedValue(strategy = GenerationType.SEQUENCE,
+    @Id
+    @Column(name = "board_no")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "BOARD_SEQ_GEN")
-    private Long boardNo;
+    private Long id;
 
-    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_no")
+    private Member boardMember;
 
     private String boardTitle;
 
@@ -25,6 +36,11 @@ public class Board {
     private LocalDateTime boardDate;
 
     @Enumerated(EnumType.STRING)
-    private QuestionResponse questionResponse;
+    private YesNo questionResponse;
+
+
+    @OneToMany(mappedBy = "board")
+    private List<Board> boards = new ArrayList<Board>();
+
 
 }
