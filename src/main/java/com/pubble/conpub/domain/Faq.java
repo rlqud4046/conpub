@@ -1,8 +1,13 @@
 package com.pubble.conpub.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @SequenceGenerator(
         name = "FAQ_SEQ_GEN",
         sequenceName = "FAQ_SEQ",

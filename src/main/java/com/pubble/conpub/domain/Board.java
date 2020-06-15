@@ -38,8 +38,7 @@ public class Board {
     @Enumerated(EnumType.STRING)
     private YesNo questionResponse;
 
-
-    @OneToMany(mappedBy = "board")
+    @OneToMany(mappedBy = "replyBoard")
     private List<Board> boards = new ArrayList<Board>();
 
 

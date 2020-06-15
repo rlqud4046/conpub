@@ -1,9 +1,14 @@
 package com.pubble.conpub.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 @SequenceGenerator(
         name = "ORDER_SEQ_GEN",
         sequenceName = "ORDER_SEQ",
@@ -27,7 +32,8 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "selected_no")
     private SelectedOption selectedOption;
 
     private LocalDateTime orderDate;

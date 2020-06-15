@@ -1,10 +1,15 @@
 package com.pubble.conpub.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @SequenceGenerator(
         name = "MEMBER_SEQ_GEN",
         sequenceName = "MEMBER_SEQ",
@@ -58,6 +63,7 @@ public class Member {
 
     @OneToMany(mappedBy = "orderMember")
     private List<Order> orders = new ArrayList<Order>();
+
 
 
 

@@ -1,9 +1,14 @@
 package com.pubble.conpub.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 @SequenceGenerator(
         name = "REVIEW_SEQ_GEN",
         sequenceName = "REVIEW_SEQ",
@@ -20,9 +25,13 @@ public class Review {
     )
     private Long id;
 
-    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_no")
+    private Member reviewMember;
 
-    private Item item;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_no")
+    private Item reviewItem;
 
     private String reviewPhoto;
 

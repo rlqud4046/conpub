@@ -48,4 +48,7 @@ public class Item {
     @ManyToMany(mappedBy = "items")
     private List<OptionList> categories = new ArrayList<OptionList>();
 
+    @OneToMany(mappedBy = "reviewItem")
+    private List<Item> items = new ArrayList<Item>();
+
 }

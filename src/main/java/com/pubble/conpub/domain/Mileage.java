@@ -1,10 +1,15 @@
 package com.pubble.conpub.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 @SequenceGenerator(
         name = "MILEAGE_SEQ_GEN",
         sequenceName = "MILEAGE_SEQ",

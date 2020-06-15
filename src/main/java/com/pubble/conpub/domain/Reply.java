@@ -26,7 +26,7 @@ public class Reply {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_no")
-    private Board board;
+    private Board replyBoard;
 
     private String replyCont;
 
