@@ -71,4 +71,9 @@ public class SelectedOption {
     @JoinColumn(name = "selectedOptionList")
     private Order selectOptionOrder;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_no")
+    private Item item;
+
+
 }

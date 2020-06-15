@@ -2,29 +2,28 @@ spring:
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/conpub
-    username: pubble
+    username: sa
     password:
-
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
-        # JPA¿¡¼­ ¹ß»ıÇÏ´Â Äõ¸®¹®À» ÄÜ¼ÖÃ¢¿¡ Ãâ·ÂÇØÁÜ.
-        show_sql : true
-        # SQL¹®ÀåÀÌ ÇÑÁÙ¿¡ ³ª¿À´Â °ÍÀÌ ¾Æ´Ï¶ó ¿¹»Ú°Ô³ª¿È.
-
+        # JPAì—ì„œ ë°œìƒí•˜ëŠ” ì¿¼ë¦¬ë¬¸ì„ ì½˜ì†”ì°½ì— ì¶œë ¥í•´ì¤Œ.
+        show_sql: true
+        # SQLë¬¸ì¥ì´ í•œì¤„ì— ë‚˜ì˜¤ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ì˜ˆì˜ê²Œë‚˜ì˜´.
         format_sql: true
+        globally_quoted_identifiers: true
 
   thymeleaf:
     cache: false
-    #¼­¹ö Àç½ÃÀÛ ¾ÈÇÏ°í ¾µ ¼ö ÀÖÀ½.
+    #ì„œë²„ ì¬ì‹œì‘ ì•ˆí•˜ê³  ì“¸ ìˆ˜ ìˆìŒ.
 
 logging.level:
-  #JPA¿¡¼­ ¹ß»ıÇÏ´Â Äõ¸®¹®À» ·Î±×ÆÄÀÏ·Î º¸¿©ÁÖ´Â ¿É¼Ç
+  #JPAì—ì„œ ë°œìƒí•˜ëŠ” ì¿¼ë¦¬ë¬¸ì„ ë¡œê·¸íŒŒì¼ë¡œ ë³´ì—¬ì£¼ëŠ” ì˜µì…˜
   org.hibernate.SQL: debug
 
-  #SQL¹®¿¡¼­ ¹ÙÀÎµùµÇ´Â ÆÄ¶ó¹ÌÅÍ °ª±îÁö º¸¿©ÁÖ´Â ¿É¼Ç
+  #SQLë¬¸ì—ì„œ ë°”ì¸ë”©ë˜ëŠ” íŒŒë¼ë¯¸í„° ê°’ê¹Œì§€ ë³´ì—¬ì£¼ëŠ” ì˜µì…˜
   org.hibernate.type: trace
 
 

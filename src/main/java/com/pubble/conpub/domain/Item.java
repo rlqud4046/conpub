@@ -19,7 +19,6 @@ import java.util.List;
 )
 public class Item {
 
-
     @Id
     @Column(name = "item_no")
     @GeneratedValue(
@@ -45,10 +44,42 @@ public class Item {
 
     private String itemDelivery;
 
-    @ManyToMany(mappedBy = "items")
-    private List<OptionList> categories = new ArrayList<OptionList>();
+    @OneToMany(mappedBy = "item")
+    private List<SelectedOption> selectedOptions = new ArrayList<>();
 
     @OneToMany(mappedBy = "reviewItem")
     private List<Review> reviews = new ArrayList<Review>();
 
+    private int sizeCheck;
+
+    private int paperCheck;
+
+    private int pageCheck;
+
+    private int bindingCheck;
+
+    private int bindingDirectionCheck;
+
+    private int coverColorCheck;
+
+    private int coverSideCheck;
+
+    private int coverTypeCheck;
+
+    private int coverCoatingCheck;
+
+    private int textColorCheck;
+
+    private int textBothSidesCheck;
+
+    private int annalsCoverColorCheck;
+
+    private int hardGoldCheck;
+
+    private int signaturePageCheck;
+
+    private int amount;
+
 }
+
+

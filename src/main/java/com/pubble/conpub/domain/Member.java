@@ -49,9 +49,6 @@ public class Member {
     @OneToMany(mappedBy = "boardMember")
     private List<Board> boards = new ArrayList<Board>();
 
-    @OneToMany(mappedBy = "cartMember")
-    private List<Cart> carts = new ArrayList<Cart>();
-
     @OneToMany(mappedBy = "deliveryMember")
     private List<Delivery> deliveries = new ArrayList<Delivery>();
 

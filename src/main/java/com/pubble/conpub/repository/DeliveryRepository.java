@@ -1,6 +1,5 @@
 package com.pubble.conpub.repository;
 
-import com.pubble.conpub.domain.Cart;
 import com.pubble.conpub.domain.Delivery;
 import org.springframework.stereotype.Repository;
 

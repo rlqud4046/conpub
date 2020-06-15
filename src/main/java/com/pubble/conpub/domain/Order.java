@@ -17,6 +17,7 @@ import java.util.List;
         initialValue = 1,
         allocationSize = 1
 )
+@Table(name = "orders")
 public class Order {
 
     @Id
