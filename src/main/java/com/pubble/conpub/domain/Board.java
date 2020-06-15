@@ -39,7 +39,7 @@ public class Board {
     private YesNo questionResponse;
 
     @OneToMany(mappedBy = "replyBoard")
-    private List<Board> boards = new ArrayList<Board>();
+    private List<Reply> replies = new ArrayList<Reply>();
 
 
 }
