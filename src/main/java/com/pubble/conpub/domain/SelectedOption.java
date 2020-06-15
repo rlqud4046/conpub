@@ -62,4 +62,7 @@ public class SelectedOption {
     @Column(nullable = false, precision = 12, scale = 1)
     private BigDecimal total_price;
 
+    @OneToOne(mappedBy = "selectedOption", fetch = FetchType.LAZY)
+    private SelectedOption selectedOption;
+
 }

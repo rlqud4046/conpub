@@ -1,12 +1,19 @@
 package com.pubble.conpub.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+@Getter
+@Setter
 public class SiteImage {
     @Id
-    private int positionNo;
+    @Column(name = "position_no")
+    private int id;
 
     private String imageSrc;
 

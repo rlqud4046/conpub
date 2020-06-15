@@ -1,5 +1,5 @@
 package com.pubble.conpub.domain;
 
-public enum SmsAgree {
+public enum YesNo {
     YES, NO
 }

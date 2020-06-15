@@ -1,3 +1,4 @@
+/*
 package com.pubble.conpub.domain;
 
 import lombok.Getter;
@@ -24,10 +25,13 @@ public class ItemOption {
     )
     private Long itemOptionNo;
 
-    /*연관관계 설정 필요
+    */
+/*연관관계 설정 필요
     @JoinColumn(name = "item_no")
     private Item item;
 
     @JoinColumn(name = "option_no")
-    private OptionList optionList;*/
+    private OptionList optionList;*//*
+
 }
+*/
