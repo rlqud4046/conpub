@@ -49,6 +49,6 @@ public class Item {
     private List<OptionList> categories = new ArrayList<OptionList>();
 
     @OneToMany(mappedBy = "reviewItem")
-    private List<Review> reviews = new ArrayList<Review>();
+    private List<Review> items = new ArrayList<Review>();
 
 }
